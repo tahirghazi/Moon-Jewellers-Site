@@ -16,7 +16,6 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
     { href: "#collections", label: "Collections" },
     { href: "#about", label: "About" },
     { href: "#visit", label: "Visit Us" },
@@ -35,16 +34,16 @@ export function Navigation() {
         <Link href="/" className="z-50 group">
           <div className="flex flex-col items-center cursor-pointer">
             <span className={cn(
-              "font-serif text-2xl md:text-3xl font-bold tracking-widest transition-colors duration-300",
+              "font-sans text-xl md:text-2xl font-bold tracking-wider transition-colors duration-300",
               scrolled ? "text-primary" : "text-primary md:text-white"
             )}>
-              LUMIÈRE
+              MOON JEWELERS
             </span>
             <span className={cn(
               "text-[0.6rem] uppercase tracking-[0.3em] font-light mt-1",
               scrolled ? "text-muted-foreground" : "text-white/80"
             )}>
-              Fine Jewelry
+              Since 1917
             </span>
           </div>
         </Link>
@@ -64,14 +63,6 @@ export function Navigation() {
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
-          <button 
-            className={cn(
-              "p-2 rounded-full transition-colors hover:bg-white/10",
-              scrolled ? "text-foreground" : "text-white"
-            )}
-          >
-            <ShoppingBag className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Mobile Toggle */}

@@ -31,11 +31,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Precious Metals & Fine Jewelry
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 leading-tight">
+              MOON JEWELERS
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8">
-              Trusted since 1917. Authentic 24K gold, silver, and diamonds.
+              Precious Metals & Fine Jewelry Since 1917. Authentic 24K gold, silver, and diamonds.
             </p>
             <a 
               href="#products" 
