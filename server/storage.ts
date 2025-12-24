@@ -26,39 +26,46 @@ export class MemStorage implements IStorage {
   private seed() {
     const seedData: InsertProduct[] = [
       {
-        name: "Diamond Solitaire Ring",
-        description: "A stunning 1.5 carat diamond set in 18k white gold. Perfect for engagements.",
-        price: "$3,500",
-        imageUrl: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
-        category: "Rings"
-      },
-      {
-        name: "Pearl Strand Necklace",
-        description: "Classic freshwater pearls strung on silk. A timeless elegance.",
-        price: "$450",
+        name: "24K Gold Bars",
+        description: "Pure 24 karat gold bars. Each bar weighs 10 grams of certified fine gold.",
+        price: "Call for pricing",
         imageUrl: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
-        category: "Necklaces"
+        category: "Gold Bars"
       },
       {
-        name: "Gold Hoop Earrings",
-        description: "Solid 14k gold hoops, lightweight and suitable for everyday wear.",
-        price: "$280",
-        imageUrl: "https://images.unsplash.com/photo-1635767798638-3e25234714d6?auto=format&fit=crop&q=80&w=800",
-        category: "Earrings"
+        name: "24K Gold Coins",
+        description: "Authentic 24K gold coins, a timeless investment and collectible.",
+        price: "Call for pricing",
+        imageUrl: "https://images.unsplash.com/photo-1610884291255-76124c2852ba?auto=format&fit=crop&q=80&w=800",
+        category: "Gold Coins"
       },
       {
-        name: "Sapphire Pendant",
-        description: "Deep blue sapphire surrounded by a halo of diamonds.",
-        price: "$1,200",
-        imageUrl: "https://images.unsplash.com/photo-1617038224538-276361a49479?auto=format&fit=crop&q=80&w=800",
-        category: "Necklaces"
+        name: "24K Silver Bars",
+        description: "High-purity 24 karat silver bars. Perfect for investors and collectors.",
+        price: "Call for pricing",
+        imageUrl: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
+        category: "Silver Bars"
       },
       {
-        name: "Silver Charm Bracelet",
-        description: "Sterling silver bracelet with customizable charms.",
-        price: "$150",
-        imageUrl: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800",
-        category: "Bracelets"
+        name: "24K Silver Coins",
+        description: "Pure 24K silver coins with superior shine and quality.",
+        price: "Call for pricing",
+        imageUrl: "https://images.unsplash.com/photo-1610884291255-76124c2852ba?auto=format&fit=crop&q=80&w=800",
+        category: "Silver Coins"
+      },
+      {
+        name: "22K Gold Jewelry Collection",
+        description: "Exquisite 22K gold jewelry featuring traditional and contemporary designs.",
+        price: "$2,500 - $8,000",
+        imageUrl: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=800",
+        category: "Gold Jewelry"
+      },
+      {
+        name: "Diamond Jewelry Sets",
+        description: "Stunning diamond jewelry including rings, necklaces, and earrings.",
+        price: "$5,000 - $50,000",
+        imageUrl: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=800",
+        category: "Diamond Jewelry"
       }
     ];
 

@@ -71,7 +71,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-sm md:text-base uppercase tracking-[0.3em] mb-4 text-white/90"
           >
-            Timeless Elegance Since 1985
+            Timeless Elegance Since 1917
           </motion.p>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -170,17 +170,17 @@ export default function Home() {
             </div>
             
             <div className="w-full lg:w-1/2 space-y-8">
-              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">The Atelier</span>
+              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">Our Heritage</span>
               <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
-                Crafting Beauty <br /> Through Generations
+                Over a Century of <br /> Excellence in Precious Metals
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Founded in 1985, Lumière began with a simple vision: to create jewelry that transcends trends and becomes part of your legacy. 
-                Our master artisans combine traditional techniques with modern innovation, ensuring every piece is not just an accessory, but a work of art.
+                Founded in 1917, our family-owned business has been the trusted source for fine precious metals and jewelry in Houston for over 100 years. 
+                We specialize in 24K gold and silver bars and coins, as well as exquisite 22K gold jewelry and diamond collections.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We believe in sustainable luxury. Every diamond is conflict-free, and every gram of gold is responsibly sourced. 
-                When you choose Lumière, you choose integrity, beauty, and permanence.
+                Our commitment to quality and authenticity has made us a cornerstone of the Hilcroft shopping community. 
+                Every item in our collection is carefully selected and authenticated to meet the highest standards of purity and craftsmanship.
               </p>
               <button className="bg-foreground text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-primary transition-colors">
                 Read Our Story
@@ -196,21 +196,21 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border">
             {/* Info Side */}
             <div className="p-12 md:p-16 flex flex-col justify-center bg-secondary/10">
-              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">Visit Our Boutique</span>
-              <h2 className="font-serif text-4xl mb-8">New York Flagship</h2>
+              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">Visit Us</span>
+              <h2 className="font-serif text-4xl mb-8">Hilcroft, Houston</h2>
               
               <div className="space-y-8">
                 <div>
                   <h4 className="font-serif text-lg mb-2">Location</h4>
-                  <p className="text-muted-foreground">123 Luxury Avenue<br />SoHo, New York, NY 10012</p>
+                  <p className="text-muted-foreground">Hilcroft Shopping Center<br />Houston, TX 77057</p>
                 </div>
                 
                 <div>
                   <h4 className="font-serif text-lg mb-2">Opening Hours</h4>
                   <ul className="text-muted-foreground space-y-1">
-                    <li className="flex justify-between max-w-xs"><span>Mon - Fri</span> <span>10:00 AM - 7:00 PM</span></li>
-                    <li className="flex justify-between max-w-xs"><span>Saturday</span> <span>11:00 AM - 6:00 PM</span></li>
-                    <li className="flex justify-between max-w-xs"><span>Sunday</span> <span>Closed</span></li>
+                    <li className="flex justify-between max-w-xs"><span>Mon - Fri</span> <span>10:00 AM - 6:00 PM</span></li>
+                    <li className="flex justify-between max-w-xs"><span>Saturday</span> <span>10:00 AM - 5:00 PM</span></li>
+                    <li className="flex justify-between max-w-xs"><span>Sunday</span> <span>12:00 PM - 5:00 PM</span></li>
                   </ul>
                 </div>
                 
@@ -225,7 +225,7 @@ export default function Home() {
             {/* Map Side */}
             <div className="h-[500px] lg:h-auto w-full bg-secondary relative grayscale hover:grayscale-0 transition-all duration-500">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.72240177933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598854112519%3A0x8e8252077e62a225!2sSoHo%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1645564756836!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.891502159945!2d-95.50154932346965!3d29.715866873133637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640a0b58e4b0e6f%3A0x8e5c8c8c8c8c8c8c!2sHilcroft%20Shopping%20Center%2C%20Houston%2C%20TX!5e0!3m2!1sen!2sus!4v1703000000000" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
