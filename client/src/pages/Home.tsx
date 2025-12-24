@@ -160,13 +160,14 @@ export default function Home() {
             {/* Map Side */}
             <div className="h-[400px] md:h-[500px] rounded-lg overflow-hidden border border-gray-200">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.891502159945!2d-95.50154932346965!3d29.715866873133637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640a0b58e4b0e6f%3A0x8e5c8c8c8c8c8c8c!2sHilcroft%20Shopping%20Center%2C%20Houston%2C%20TX!5e0!3m2!1sen!2sus!4v1703000000000" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.0102296679024!2d-95.50311782500219!3d29.719462933896196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c24aee6177c7%3A0x8ea4136d669768a2!2sMoon%20Jewelers!5e0!3m2!1sen!2s!4v1766577857410!5m2!1sen!2s" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy"
-                title="Google Maps Location"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Moon Jewelers Location"
               />
             </div>
           </div>
