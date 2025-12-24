@@ -1,17 +1,22 @@
-import { products, type Product, type InsertProduct } from "@shared/schema";
+import { products, testimonials, type Product, type InsertProduct, type Testimonial, type InsertTestimonial } from "@shared/schema";
 
 export interface IStorage {
   getProducts(): Promise<Product[]>;
   getProduct(id: number): Promise<Product | undefined>;
+  getTestimonials(): Promise<Testimonial[]>;
 }
 
 export class MemStorage implements IStorage {
   private products: Map<number, Product>;
-  private currentId: number;
+  private testimonials: Map<number, Testimonial>;
+  private currentProductId: number;
+  private currentTestimonialId: number;
 
   constructor() {
     this.products = new Map();
-    this.currentId = 1;
+    this.testimonials = new Map();
+    this.currentProductId = 1;
+    this.currentTestimonialId = 1;
     this.seed();
   }
 
@@ -23,7 +28,16 @@ export class MemStorage implements IStorage {
     return this.products.get(id);
   }
 
+  async getTestimonials(): Promise<Testimonial[]> {
+    return Array.from(this.testimonials.values());
+  }
+
   private seed() {
+    this.seedProducts();
+    this.seedTestimonials();
+  }
+
+  private seedProducts() {
     const seedData: InsertProduct[] = [
       {
         name: "24K Gold Bars",
@@ -70,8 +84,42 @@ export class MemStorage implements IStorage {
     ];
 
     seedData.forEach(p => {
-      const id = this.currentId++;
+      const id = this.currentProductId++;
       this.products.set(id, { ...p, id });
+    });
+  }
+
+  private seedTestimonials() {
+    const testimonialData: InsertTestimonial[] = [
+      {
+        name: "Sarah Martinez",
+        title: "Investor & Collector",
+        content: "I've been buying precious metals from Moon Jewelers for 5 years. Their authenticity and fair pricing are unmatched. Highly recommend!",
+        rating: 5
+      },
+      {
+        name: "James Chen",
+        title: "Business Owner",
+        content: "Purchased diamond jewelry for my wife's anniversary. The quality is exceptional and the staff was incredibly knowledgeable.",
+        rating: 5
+      },
+      {
+        name: "Patricia Williams",
+        title: "Long-time Customer",
+        content: "Over 20 years of trust with Moon Jewelers. They're the real deal when it comes to precious metals authentication.",
+        rating: 5
+      },
+      {
+        name: "Michael Rodriguez",
+        title: "Estate Buyer",
+        content: "Best prices for 24K gold and silver in Houston. Professional, honest, and transparent. Worth the visit!",
+        rating: 5
+      }
+    ];
+
+    testimonialData.forEach(t => {
+      const id = this.currentTestimonialId++;
+      this.testimonials.set(id, { ...t, id });
     });
   }
 }

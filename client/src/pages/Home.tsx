@@ -1,13 +1,23 @@
 import { useProducts } from "@/hooks/use-products";
+import { useQuery } from "@tanstack/react-query";
 import { Navigation } from "@/components/Navigation";
 import { ProductCard } from "@/components/ProductCard";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, Star } from "lucide-react";
+import type { Testimonial } from "@shared/schema";
 
 export default function Home() {
   const { data: products } = useProducts();
   const displayProducts = products || [];
+  
+  const { data: testimonials = [] } = useQuery<Testimonial[]>({
+    queryKey: ['/api/testimonials'],
+    queryFn: async () => {
+      const res = await fetch('/api/testimonials');
+      return res.json();
+    },
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -101,6 +111,44 @@ export default function Home() {
                 When you choose us, you're choosing over a century of trust and expertise.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section id="testimonials" className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Customer Testimonials</h2>
+            <p className="text-gray-600 text-lg">
+              Trusted by customers for over 100 years
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {testimonials.map((testimonial, idx) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="border border-gray-200 rounded-lg p-8 bg-gray-50 hover:bg-gray-100 transition-colors"
+              >
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+                <div>
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.title}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

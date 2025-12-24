@@ -21,5 +21,10 @@ export async function registerRoutes(
     res.json(product);
   });
 
+  app.get(api.testimonials.list.path, async (req, res) => {
+    const testimonials = await storage.getTestimonials();
+    res.json(testimonials);
+  });
+
   return httpServer;
 }

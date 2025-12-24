@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertProductSchema, products } from './schema';
+import { insertProductSchema, products, testimonials } from './schema';
 
 export const api = {
   products: {
@@ -16,6 +16,15 @@ export const api = {
       responses: {
         200: z.custom<typeof products.$inferSelect>(),
         404: z.object({ message: z.string() }),
+      },
+    },
+  },
+  testimonials: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/testimonials',
+      responses: {
+        200: z.array(z.custom<typeof testimonials.$inferSelect>()),
       },
     },
   },
