@@ -20,7 +20,7 @@ export function ProductCard({ product, index }: ProductCardProps) {
           src={product.imageUrl}
           alt={product.name}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-103"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
         

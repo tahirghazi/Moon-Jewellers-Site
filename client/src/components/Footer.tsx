@@ -8,7 +8,7 @@ export function Footer() {
           <div className="space-y-4">
             <span className="font-sans text-2xl font-bold tracking-wider">MOON JEWELERS</span>
             <p className="text-white/70 text-sm leading-relaxed">
-              Trusted source for precious metals and fine jewelry since 1917. Specializing in authentic 24K gold, silver, and diamonds.
+              Trusted source for precious metals and fine jewelry since 1992. Specializing in authentic 24K gold, silver, and diamonds.
             </p>
           </div>
 

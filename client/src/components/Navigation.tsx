@@ -43,7 +43,7 @@ export function Navigation() {
               "text-[0.6rem] uppercase tracking-[0.3em] font-light mt-1",
               scrolled ? "text-muted-foreground" : "text-white/80"
             )}>
-              Since 1917
+              Since 1992
             </span>
           </div>
         </Link>

@@ -45,7 +45,7 @@ export default function Home() {
               MOON JEWELERS
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8">
-              Precious Metals & Fine Jewelry Since 1917. Authentic 24K gold, silver, and diamonds.
+              Precious Metals & Fine Jewelry Since 1992. Authentic 24K gold, silver, and diamonds.
             </p>
             <a 
               href="#products" 
@@ -82,7 +82,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Heritage</h2>
             <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
               <p>
-                Founded in 1917, we have been Houston's trusted source for precious metals and fine jewelry for over 100 years. 
+                Founded in 1992, we have been Houston's trusted source for precious metals and fine jewelry for over 30 years. 
                 Located in the heart of Hilcroft Shopping Center, our family-owned business is built on principles of authenticity, quality, and integrity.
               </p>
               <p>
