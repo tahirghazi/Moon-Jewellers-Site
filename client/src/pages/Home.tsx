@@ -3,227 +3,162 @@ import { Navigation } from "@/components/Navigation";
 import { ProductCard } from "@/components/ProductCard";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Clock, Shield } from "lucide-react";
-
-// Mock data as fallback for loading state or empty database
-const MOCK_PRODUCTS = [
-  {
-    id: 1,
-    name: "Ethereal Diamond Ring",
-    price: "$5,400",
-    category: "Rings",
-    description: "A stunning solitaire diamond set in 18k gold.",
-    imageUrl: "https://images.unsplash.com/photo-1605100804763-eb2fc631037f?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Pearl Drop Earrings",
-    price: "$1,200",
-    category: "Earrings",
-    description: "Freshwater pearls suspended from gold chains.",
-    imageUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Golden Hour Necklace",
-    price: "$3,800",
-    category: "Necklaces",
-    description: "Layered gold chains catching the light.",
-    imageUrl: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    id: 4,
-    name: "Sapphire Royal Band",
-    price: "$6,500",
-    category: "Rings",
-    description: "Deep blue sapphires embedded in platinum.",
-    imageUrl: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1000&auto=format&fit=crop"
-  }
-];
+import { MapPin, Clock, Phone } from "lucide-react";
 
 export default function Home() {
-  const { data: products, isLoading } = useProducts();
-  
-  // Use DB products if available, otherwise fallback to mock for visuals
-  const displayProducts = products && products.length > 0 ? products : MOCK_PRODUCTS;
+  const { data: products } = useProducts();
+  const displayProducts = products || [];
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* HERO SECTION */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+      <section className="relative min-h-[550px] flex items-center justify-center pt-20 pb-20">
         <div className="absolute inset-0 z-0">
-          {/* Unsplash image: Elegant woman wearing jewelry close up */}
           <img 
             src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2000&auto=format&fit=crop" 
             alt="Hero Background" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6 text-center text-white">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-sm md:text-base uppercase tracking-[0.3em] mb-4 text-white/90"
-          >
-            Timeless Elegance Since 1917
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-8 leading-tight"
-          >
-            Refined Luxury <br /> for Every Occasion
-          </motion.h1>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto"
           >
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Precious Metals & Fine Jewelry
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mb-8">
+              Trusted since 1917. Authentic 24K gold, silver, and diamonds.
+            </p>
             <a 
-              href="#collections" 
-              className="inline-flex items-center gap-3 border border-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300"
+              href="#products" 
+              className="inline-block bg-primary hover:bg-accent text-white px-8 py-3 text-sm font-semibold transition-colors"
             >
-              Discover Collection
-              <ArrowRight className="w-4 h-4" />
+              Explore Collections
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* FEATURES BAR */}
-      <div className="bg-secondary py-12 border-b border-border">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-border/50">
-          <div className="flex flex-col items-center gap-3 p-4">
-            <Star className="w-6 h-6 text-primary" />
-            <h3 className="font-serif text-lg">Ethically Sourced</h3>
-            <p className="text-sm text-muted-foreground">Conflict-free diamonds and recycled gold.</p>
-          </div>
-          <div className="flex flex-col items-center gap-3 p-4">
-            <Shield className="w-6 h-6 text-primary" />
-            <h3 className="font-serif text-lg">Lifetime Warranty</h3>
-            <p className="text-sm text-muted-foreground">We stand behind our craftsmanship forever.</p>
-          </div>
-          <div className="flex flex-col items-center gap-3 p-4">
-            <Clock className="w-6 h-6 text-primary" />
-            <h3 className="font-serif text-lg">Custom Design</h3>
-            <p className="text-sm text-muted-foreground">Bring your unique vision to life.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* COLLECTIONS GRID */}
-      <section id="collections" className="py-24 bg-background">
+      {/* PRODUCTS SECTION */}
+      <section id="products" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3 block">Our Selection</span>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6 text-foreground">Featured Collections</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Explore our meticulously curated selection of fine jewelry, designed to celebrate life's most precious moments.
+          <div className="max-w-2xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Collections</h2>
+            <p className="text-gray-600 text-lg">
+              Explore our curated selection of precious metals and fine jewelry
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-            {isLoading 
-              ? Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="animate-pulse">
-                    <div className="bg-secondary aspect-[3/4] mb-4" />
-                    <div className="h-4 bg-secondary w-2/3 mx-auto mb-2" />
-                    <div className="h-4 bg-secondary w-1/3 mx-auto" />
-                  </div>
-                ))
-              : displayProducts.map((product, idx) => (
-                  <ProductCard key={product.id} product={product} index={idx} />
-                ))
-            }
-          </div>
-          
-          <div className="mt-16 text-center">
-            <button className="text-foreground border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors uppercase text-xs tracking-widest">
-              View All Products
-            </button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayProducts.map((product, idx) => (
+              <ProductCard key={product.id} product={product} index={idx} />
+            ))}
           </div>
         </div>
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="py-24 bg-secondary/30 relative overflow-hidden">
+      <section id="about" className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="w-full lg:w-1/2 relative">
-              <div className="aspect-[4/5] relative z-10 overflow-hidden">
-                {/* Unsplash image: Artisan working on jewelry */}
-                <img 
-                  src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Craftsmanship" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative border offset */}
-              <div className="absolute top-8 left-8 w-full h-full border border-primary/20 -z-0" />
-            </div>
-            
-            <div className="w-full lg:w-1/2 space-y-8">
-              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">Our Heritage</span>
-              <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
-                Over a Century of <br /> Excellence in Precious Metals
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Founded in 1917, our family-owned business has been the trusted source for fine precious metals and jewelry in Houston for over 100 years. 
-                We specialize in 24K gold and silver bars and coins, as well as exquisite 22K gold jewelry and diamond collections.
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Heritage</h2>
+            <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+              <p>
+                Founded in 1917, we have been Houston's trusted source for precious metals and fine jewelry for over 100 years. 
+                Located in the heart of Hilcroft Shopping Center, our family-owned business is built on principles of authenticity, quality, and integrity.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Our commitment to quality and authenticity has made us a cornerstone of the Hilcroft shopping community. 
-                Every item in our collection is carefully selected and authenticated to meet the highest standards of purity and craftsmanship.
+              <p>
+                We specialize in:
               </p>
-              <button className="bg-foreground text-white px-8 py-4 text-xs tracking-widest uppercase hover:bg-primary transition-colors">
-                Read Our Story
-              </button>
+              <ul className="space-y-3 ml-6">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span><strong>24K Gold Bars & Coins</strong> - Pure investment-grade precious metals</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span><strong>24K Silver Bars & Coins</strong> - Authentic and certified for collectors and investors</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span><strong>22K Gold Jewelry</strong> - Traditional and contemporary designs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">•</span>
+                  <span><strong>Diamond Jewelry</strong> - Certified gemstones and bespoke pieces</span>
+                </li>
+              </ul>
+              <p>
+                Every item is carefully authenticated and meets the highest standards of purity. 
+                When you choose us, you're choosing over a century of trust and expertise.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* VISIT US SECTION */}
-      <section id="visit" className="py-24 bg-white">
+      {/* VISIT SECTION */}
+      <section id="visit" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-border">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Visit Us</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Info Side */}
-            <div className="p-12 md:p-16 flex flex-col justify-center bg-secondary/10">
-              <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">Visit Us</span>
-              <h2 className="font-serif text-4xl mb-8">Hilcroft, Houston</h2>
-              
-              <div className="space-y-8">
+            <div className="space-y-8">
+              <div className="flex gap-6">
+                <MapPin className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-serif text-lg mb-2">Location</h4>
-                  <p className="text-muted-foreground">Hilcroft Shopping Center<br />Houston, TX 77057</p>
+                  <h3 className="text-xl font-semibold mb-2">Location</h3>
+                  <p className="text-gray-600 text-lg">
+                    Hilcroft Shopping Center<br />
+                    Houston, TX 77057
+                  </p>
                 </div>
-                
+              </div>
+
+              <div className="flex gap-6">
+                <Clock className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-serif text-lg mb-2">Opening Hours</h4>
-                  <ul className="text-muted-foreground space-y-1">
-                    <li className="flex justify-between max-w-xs"><span>Mon - Fri</span> <span>10:00 AM - 6:00 PM</span></li>
-                    <li className="flex justify-between max-w-xs"><span>Saturday</span> <span>10:00 AM - 5:00 PM</span></li>
-                    <li className="flex justify-between max-w-xs"><span>Sunday</span> <span>12:00 PM - 5:00 PM</span></li>
-                  </ul>
+                  <h3 className="text-xl font-semibold mb-2">Hours</h3>
+                  <div className="text-gray-600 text-lg space-y-1">
+                    <div className="flex justify-between max-w-xs">
+                      <span>Monday - Friday</span>
+                      <span>10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between max-w-xs">
+                      <span>Saturday</span>
+                      <span>10:00 AM - 5:00 PM</span>
+                    </div>
+                    <div className="flex justify-between max-w-xs">
+                      <span>Sunday</span>
+                      <span>12:00 PM - 5:00 PM</span>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="pt-4">
-                  <button className="border border-foreground px-8 py-3 text-xs tracking-widest uppercase hover:bg-foreground hover:text-white transition-colors">
-                    Book Appointment
-                  </button>
+              </div>
+
+              <div className="flex gap-6">
+                <Phone className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Contact</h3>
+                  <p className="text-gray-600 text-lg">
+                    Call for pricing and inquiries<br />
+                    Professional consultations available
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Map Side */}
-            <div className="h-[500px] lg:h-auto w-full bg-secondary relative grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="h-[400px] md:h-[500px] rounded-lg overflow-hidden border border-gray-200">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.891502159945!2d-95.50154932346965!3d29.715866873133637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640a0b58e4b0e6f%3A0x8e5c8c8c8c8c8c8c!2sHilcroft%20Shopping%20Center%2C%20Houston%2C%20TX!5e0!3m2!1sen!2sus!4v1703000000000" 
                 width="100%" 
