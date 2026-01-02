@@ -16,7 +16,6 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "#collections", label: "Collections" },
     { href: "#about", label: "About" },
     { href: "#visit", label: "Visit Us" },
   ];
