@@ -12,6 +12,7 @@ export function useProducts() {
       if (!res.ok) throw new Error("Failed to fetch products");
       return api.products.list.responses[200].parse(await res.json());
     },
+    retry: 3,
   });
 }
 

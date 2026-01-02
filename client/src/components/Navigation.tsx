@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -50,6 +50,22 @@ export function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-6 mr-4 border-r pr-6 border-border/50">
+            <a href="tel:713-952-6660" className={cn(
+              "flex items-center gap-2 text-sm transition-colors hover:text-primary",
+              scrolled ? "text-foreground" : "text-white"
+            )}>
+              <Phone className="w-4 h-4" />
+              713-952-6660
+            </a>
+            <a href="mailto:Themoonjewelers@gmail.com" className={cn(
+              "flex items-center gap-2 text-sm transition-colors hover:text-primary",
+              scrolled ? "text-foreground" : "text-white"
+            )}>
+              <Mail className="w-4 h-4" />
+              Themoonjewelers@gmail.com
+            </a>
+          </div>
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -95,6 +111,16 @@ export function Navigation() {
                   {link.label}
                 </a>
               ))}
+              <div className="flex flex-col items-center gap-4 mt-4 pt-6 border-t border-border">
+                <a href="tel:713-952-6660" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+                  <Phone className="w-5 h-5" />
+                  713-952-6660
+                </a>
+                <a href="mailto:Themoonjewelers@gmail.com" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5" />
+                  Themoonjewelers@gmail.com
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

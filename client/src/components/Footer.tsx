@@ -21,11 +21,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>Call for pricing and inquiries</span>
+                <a href="tel:713-952-6660" className="hover:text-primary transition-colors">713-952-6660</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>Professional consultations available</span>
+                <a href="mailto:Themoonjewelers@gmail.com" className="hover:text-primary transition-colors">Themoonjewelers@gmail.com</a>
               </li>
             </ul>
           </div>

@@ -15,8 +15,10 @@ export default function Home() {
     queryKey: ['/api/testimonials'],
     queryFn: async () => {
       const res = await fetch('/api/testimonials');
+      if (!res.ok) throw new Error('Failed to fetch testimonials');
       return res.json();
     },
+    retry: 3,
   });
 
   return (
@@ -121,7 +123,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Customer Testimonials</h2>
             <p className="text-gray-600 text-lg">
-              Trusted by customers for over 100 years
+              Trusted by customers since 1992
             </p>
           </div>
 
@@ -198,8 +200,8 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Contact</h3>
                   <p className="text-gray-600 text-lg">
-                    Call for pricing and inquiries<br />
-                    Professional consultations available
+                    <a href="tel:713-952-6660" className="hover:text-primary transition-colors">713-952-6660</a><br />
+                    <a href="mailto:Themoonjewelers@gmail.com" className="hover:text-primary transition-colors">Themoonjewelers@gmail.com</a>
                   </p>
                 </div>
               </div>
